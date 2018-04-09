@@ -1,22 +1,22 @@
 <?php
 session_start();
 
-// function message()
-// {
-//     if (isset($_SESSION["message"])) {
-//         $output = "<div class=\"\">";
-//         $output .= htmlentities($_SESSION["message"]);
-//         $output .= "</div>";
-//         $msg = "<script>console.log(";
-//         $msg .= $_SESSION["message"];
-//         $msg .= ")</script>";
-//         echo $msg;
-//         //display only once, dissappears on reload
-//         $_SESSION["message"] = null;
-//
-//         return $output;
-//     }
-// }
+function session_message()
+{
+    if (isset($_SESSION["session_message"])) {
+        $output = "<div class=\"alert alert-success\" role=\"alert\">";
+        $output .= htmlentities($_SESSION["session_message"]);
+        $output .= "</div>";
+        $msg = "<script>console.log(";
+        $msg .= $_SESSION["session_message"];
+        $msg .= ")</script>";
+        echo $msg;
+        //display only once, dissappears on reload
+        $_SESSION["session_message"] = null;
+
+        return $output;
+    }
+}
 
 function errors()
 {

@@ -10,6 +10,18 @@
 		return $escaped_string;
 	}
 
+	function alert_message($message){
+		$output = "<div class=\"alert alert-success\" role=\"alert\">";
+		$output .= $message;
+		$output .= "</div>";
+		$msg = "<script>console.log(";
+		$msg .= $message;
+		$msg .= ")</script>";
+		echo $msg;
+
+		return $output;
+	}
+
 	function confirm_query($result_set)
 	{
 		if (!$result_set) {
@@ -21,7 +33,6 @@
 		$output = "";
 		if (!empty($errors)) {
 		$output .= "<div class=\"alert alert-primary text-danger\">";
-		$output .= "Please fix the following errors:";
 		$output .= "<ul>";
 		foreach ($errors as $key => $error) {
 			$output .= "<li>";

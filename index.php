@@ -4,10 +4,8 @@
 <?php require_once("includes/validation_functions.php"); ?>
 
 <?php
-  if (isset($_POST['submit']) && $_POST['randcheck'] == $_SESSION['rand']) {
+  if (isset($_POST['submit']) && $_POST['randcheck'] == $_SESSION['rand_signupForm']) {
       //process the form
-
-
 
       // validations
       $required_fields = array("username", "email", "password");
@@ -34,31 +32,31 @@
 
           if ($result && mysqli_affected_rows($connection) >= 0) {
               // Success
-              $message = "Signup successful.";
+             $alert_message  = "Signup successful.";
           } else {
               // Failure
-              $message = "Sighup failed.";
+               $alert_message  = "";
           }
       }
-    } elseif (isset($_POST['submit']) && $_POST['randcheck'] == $_SESSION['rand_contact']) {
+    } elseif (isset($_POST['submit']) && $_POST['randcheck'] == $_SESSION['rand_contactForm']) {
         // validations
-        $required_fields_contact = array("name", "email", "message");
+        $required_fields_contact = array("message");
         validate_presences($required_fields_contact);
 
-        $fields_with_max_lengths_contact = array("name" => 20);
-        validate_max_lengths($fields_with_max_lengths_contact);
+        $fields_with_max_lengths = array("name" => 20);
+        validate_max_lengths($fields_with_max_lengths);
 
-        $fields_with_min_lengths_contact = array("message" => 10);
-        validate_min_lengths($fields_with_min_lengths_contact);
+        $fields_with_min_lengths = array("message" => 10);
+        validate_min_lengths($fields_with_min_lengths);
 
         if (empty($errors)) {
           //perform create
-          $username = escape_string($_POST["name"]);
+          $name = escape_string($_POST["name"]);
           $email = escape_string($_POST["email"]);
-          $password = escape_string($_POST["message"]);
+          $message = escape_string($_POST["message"]);
 
           // 2. Perform database query
-          $query  = "INSERT INTO contact_us (";
+          $query  = "INSERT INTO feedback (";
             $query .= "name, email, message";
             $query .= ") VALUES (";
               $query .= "'{$name}', '{$email}', '{$message}'";
@@ -67,12 +65,10 @@
 
               if ($result && mysqli_affected_rows($connection) >= 0) {
                 // Success
-                $message = "Submitted";
-                redirectto("index.php");
+                 $alert_message = "Thank you for your feedback.";
               } else {
                 // Failure
-                $message = "Submission failed";
-                redirectto("index.php");
+                $alert_message = "";
               }
       }else{
         // this is probably a get request

@@ -36,6 +36,11 @@
         return strlen($value) <= $max;
     }
 
+    // min length
+    function has_min_length($value, $min) {
+      return strlen($value) >= $min;
+    }
+
     function validate_max_lengths($fields_with_max_lengths)
     {
         global $errors;
@@ -43,14 +48,9 @@
         foreach ($fields_with_max_lengths as $field => $max) {
             $value = trim($_POST[$field]);
             if (!has_max_length($value, $max)) {
-                $errors[$field] = fieldname_as_text($field) . " is too long";
+                $errors[$field] = fieldname_as_text($field) . " cannot exceed more than " . $max ." characters";
             }
         }
-    }
-
-    // min length
-    function has_min_length($value, $min) {
-      return strlen($value) >= $min;
     }
 
     function validate_min_lengths($fields_with_min_lengths) {
@@ -58,8 +58,8 @@
       // Expects an assoc. array
       foreach($fields_with_min_lengths as $field => $min) {
           $value = trim($_POST[$field]);
-      if (!has_max_length($value, $min)) {
-          $errors[$field] = fieldname_as_text($field) . " is too short";
+      if (!has_min_length($value, $min)) {
+          $errors[$field] = fieldname_as_text($field) . " should be at least " . $min ." characters";
       }
       }
     }

@@ -6,8 +6,8 @@
         <div class="py-4">
           <h1 class="h3">LoopLab</h1>
           <p>Copyright &copy; 2018</p>
-            <button class="btn btn-primary" data-toggle="modal"
-            data-target="#contactModal">Contact Us</button>
+            <button class="btn btn-primary" id="feedback" data-toggle="modal"
+            data-target="#feedbackModal">Give us a feedback</button>
         </div>
       </div>
     </div>
@@ -15,37 +15,44 @@
 </footer>
 
 <!--CONTACT MODAL-->
-<div class="modal fade text-dark" id="contactModal">
+<div class="modal fade text-dark" id="feedbackModal">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="contactModalTitle">
-          Contact Us
+        <h5 class="modal-title" id="feedbackModalTitle">
+          Name and Email fields are optional
         </h5>
       </div>
       <div class="modal-body">
+
+        <!-- errors and messages -->
+
+        <?php if ($_POST['randcheck'] == $_SESSION['rand_contactForm']) {; ?>
+          <?php echo form_errors($errors); ?>
+        <?php }; ?>
+
         <form action="index.php" data-toggle="validator" role="form" method="post">
 
           <?php
              $rand=rand();
-             $_SESSION['rand_contact']=$rand;
+             $_SESSION['rand_contactForm']=$rand;
           ?>
           <input type="hidden" value="<?php echo $rand; ?>" name="randcheck" />
 
 
           <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" required>
+            <input type="text" name="name" class="form-control">
           </div>
 
           <div class="form-group">
             <label for="name">Email</label>
-            <input type="email" class="form-control" required>
+            <input type="email" name="email" class="form-control">
           </div>
 
           <div class="form-group">
             <label for="name">Message</label>
-            <textarea class="form-control" required></textarea>
+            <textarea class="form-control" name="message" required></textarea>
           </div>
 
           <div class="modal-footer">
@@ -53,7 +60,7 @@
           </div>
 
         </form>
-      </div>    
+      </div>
     </div>
   </div>
 </div>

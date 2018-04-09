@@ -32,19 +32,13 @@
             </div>
             <div class="col-lg-4">
               <!-- errors and messages -->
-             <?php if(!empty($message)) {; ?>
-                <div class="alert alert-primary">
-                  <?php echo $message; ?>
-                </div>
+             <?php if(isset($alert_message)) {; ?>
+                <?php   echo alert_message($alert_message); ?>
               <?php }; ?>
-<!--
-              <?php if(!empty(form_errors($errors))) {; ?>
-                <div class="alert alert-danger">
-                  <?php //echo form_errors($errors); ?>
-                </div>
-              <?php }; ?> -->
-              <?php echo form_errors($errors); ?>
 
+              <?php if ($_POST['randcheck'] == $_SESSION['rand_signupForm']) {; ?>
+                <?php echo form_errors($errors); ?>
+              <?php }; ?>
               <div class="card bg-primary text-center card-form">
                 <h3>Sign Up Today</h3>
                 <p>Please fill out this form to register</p>
@@ -55,7 +49,7 @@
 
                   <?php
                      $rand=rand();
-                     $_SESSION['rand']=$rand;
+                     $_SESSION['rand_signupForm']=$rand;
                   ?>
                   <input type="hidden" value="<?php echo $rand; ?>" name="randcheck" />
 
