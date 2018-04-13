@@ -10,7 +10,7 @@
   <link href="css/style.css" rel="stylesheet"  media="all">
 
   <!-- reopen feedback form on form errors -->
-    <?php if ($_POST['randcheck'] == $_SESSION['rand_contactForm']) {; ?>
+    <?php if (isset($_POST['submit_feedback'])) {; ?>
       <?php if(form_errors($errors)) {; ?>
       <script type="text/javascript">
         <?php echo "window.onload = function(){ document.getElementById(\"feedback\").click(); }"; ?>

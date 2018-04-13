@@ -4,7 +4,7 @@
 <?php require_once("includes/validation_functions.php"); ?>
 
 <?php
-  if (isset($_POST['submit']) && $_POST['randcheck'] == $_SESSION['rand_signupForm']) {
+  if (isset($_POST['submit_signup']) && $_POST['randcheck'] == $_SESSION['rand_signupForm']) {
       //process the form
 
       // validations
@@ -38,7 +38,7 @@
                $alert_message  = "";
           }
       }
-    } elseif (isset($_POST['submit']) && $_POST['randcheck'] == $_SESSION['rand_contactForm']) {
+    } elseif (isset($_POST['submit_feedback']) && $_POST['randcheck'] == $_SESSION['rand_contactForm']) {
         // validations
         $required_fields_contact = array("message");
         validate_presences($required_fields_contact);

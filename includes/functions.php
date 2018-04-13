@@ -28,8 +28,16 @@
 			die("Database query failed.");
 		}
 	}
+	//
+	// function this_form($form_name){
+	// 	if(isset($_POST['submit']) && $_POST['randcheck'] == $_SESSION[$form_name]){
+	// 		return true;
+	// 	}else{
+	// 		return false;
+	// 	}
+	// }
 
-	function form_errors($errors=array()) {
+function form_errors($errors=array()) {
 		$output = "";
 		if (!empty($errors)) {
 		$output .= "<div class=\"alert alert-primary text-danger\">";

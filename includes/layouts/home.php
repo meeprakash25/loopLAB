@@ -36,7 +36,7 @@
                 <?php   echo alert_message($alert_message); ?>
               <?php }; ?>
 
-              <?php if ($_POST['randcheck'] == $_SESSION['rand_signupForm']) {; ?>
+              <?php if (isset($_POST['submit_signup'])) {; ?>
                 <?php echo form_errors($errors); ?>
               <?php }; ?>
               <div class="card bg-primary text-center card-form">
@@ -54,10 +54,10 @@
                   <input type="hidden" value="<?php echo $rand; ?>" name="randcheck" />
 
                   <div class="form-group">
-                    <input type="text" name="username" class="form-control form-control-lg" placeholder="username" required>
+                    <input type="text" name="username" class="form-control form-control-lg" placeholder="username" value="<?php if (isset($_POST['submit_signup']) && !empty($errors)) {echo $_POST['username'];}; ?>" required>
                   </div>
                   <div class="form-group">
-                    <input type="email" name="email" class="form-control form-control-lg" placeholder="email" data-error="Bruh, that email address is invalid" required>
+                    <input type="email" name="email" class="form-control form-control-lg" placeholder="email" data-error="Bruh, that email address is invalid" value="<?php if (isset($_POST['submit_signup']) && !empty($errors)) {echo $_POST['email'];}; ?>" required>
                   </div>
                   <div class="form-group">
                     <input type="password" name="password" class="form-control form-control-lg" placeholder="password" required>
@@ -65,7 +65,7 @@
                   <div class="form-group">
                     <input type="password" name="confirm_password" class="form-control form-control-lg" placeholder="confirm password" required>
                   </div>
-                  <input type="submit" name="submit" value="submit" class="btn btn-outline-light btn-block">
+                  <input type="submit" name="submit_signup" value="submit" class="btn btn-outline-light btn-block">
                 </form>
               </div>
             </div>

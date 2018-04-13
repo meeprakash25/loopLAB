@@ -27,7 +27,7 @@
 
         <!-- errors and messages -->
 
-        <?php if ($_POST['randcheck'] == $_SESSION['rand_contactForm']) {; ?>
+        <?php if (isset($_POST['submit_feedback']) && $_POST['randcheck'] == $_SESSION['rand_contactForm']) {; ?>
           <?php echo form_errors($errors); ?>
         <?php }; ?>
 
@@ -42,21 +42,21 @@
 
           <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" name="name" class="form-control">
+            <input type="text" name="name" class="form-control" value="<?php if (isset($_POST['submit_feedback']) && !empty($errors)) {echo $_POST['name'];}; ?>">
           </div>
 
           <div class="form-group">
-            <label for="name">Email</label>
-            <input type="email" name="email" class="form-control">
+            <label for="email">Email</label>
+            <input type="email" name="email" class="form-control" value="<?php if (isset($_POST['submit_feedback']) && !empty($errors)) {echo $_POST['email'];}; ?>">
           </div>
 
           <div class="form-group">
-            <label for="name">Message</label>
-            <textarea class="form-control" name="message" required></textarea>
+            <label for="message">Message</label>
+            <textarea class="form-control" name="message" required value="<?php if (isset($_POST['submit_feedback']) && !empty($errors)) {echo $_POST['message'];}; ?>"></textarea>
           </div>
 
           <div class="modal-footer">
-            <input type="submit" name="submit" value="submit" class="btn btn-primary btn-block">
+            <input type="submit" name="submit_feedback" value="submit" class="btn btn-primary btn-block">
           </div>
 
         </form>
