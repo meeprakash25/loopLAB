@@ -22,7 +22,7 @@
 <body id="home">
 
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">LoopLAB</a>
+    <a class="navbar-brand" href="index.php">LoopLAB</a>
       <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarDiv"
       aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars"></i>

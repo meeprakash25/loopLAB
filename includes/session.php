@@ -4,8 +4,9 @@ session_start();
 function session_message()
 {
     if (isset($_SESSION["session_message"])) {
-        $output = "<div class=\"alert alert-success\" role=\"alert\">";
+        $output = "<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">";
         $output .= htmlentities($_SESSION["session_message"]);
+        $output .= "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\"> <span aria-hidden=\"true\">&times;</span></button>";
         $output .= "</div>";
         $msg = "<script>console.log(";
         $msg .= $_SESSION["session_message"];

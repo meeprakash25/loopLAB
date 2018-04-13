@@ -19,9 +19,10 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="feedbackModalTitle">
+        <h4 class="modal-title" id="feedbackModalTitle">
           Name and Email fields are optional
-        </h5>
+        </h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
 
@@ -65,9 +66,12 @@
   </div>
 </div>
 
+
 <script src="js/jquery-3.2.1.slim.min.js"></script>
+<script src="js/scrollanimation.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+
 
 <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </body>

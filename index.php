@@ -32,10 +32,10 @@
 
           if ($result && mysqli_affected_rows($connection) >= 0) {
               // Success
-             $alert_message  = "Signup successful.";
+             $alert_message  = "Signup <strong>successful</strong>.";
           } else {
               // Failure
-               $alert_message  = "";
+               $alert_message  = "";//querying the database has to be always unsuccessful
           }
       }
     } elseif (isset($_POST['submit_feedback']) && $_POST['randcheck'] == $_SESSION['rand_contactForm']) {
@@ -65,7 +65,7 @@
 
               if ($result && mysqli_affected_rows($connection) >= 0) {
                 // Success
-                 $alert_message = "Thank you for your feedback.";
+                 $alert_message = "Thank you for your <strong>feedback</strong>.";
               } else {
                 // Failure
                 $alert_message = "";

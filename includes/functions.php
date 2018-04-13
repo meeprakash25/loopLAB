@@ -11,8 +11,10 @@
 	}
 
 	function alert_message($message){
-		$output = "<div class=\"alert alert-success\" role=\"alert\">";
+		$output = "<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">";
 		$output .= $message;
+		//$output .= "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\"> <span aria-hidden=\"true\">&times;</span></button>";
+		$output .= "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" >&times;</button>";
 		$output .= "</div>";
 		$msg = "<script>console.log(";
 		$msg .= $message;
@@ -28,19 +30,11 @@
 			die("Database query failed.");
 		}
 	}
-	//
-	// function this_form($form_name){
-	// 	if(isset($_POST['submit']) && $_POST['randcheck'] == $_SESSION[$form_name]){
-	// 		return true;
-	// 	}else{
-	// 		return false;
-	// 	}
-	// }
 
 function form_errors($errors=array()) {
 		$output = "";
 		if (!empty($errors)) {
-		$output .= "<div class=\"alert alert-primary text-danger\">";
+		$output .= "<div class=\"alert alert-danger alert-dismissible fade show\">";
 		$output .= "<ul>";
 		foreach ($errors as $key => $error) {
 			$output .= "<li>";
@@ -48,6 +42,7 @@ function form_errors($errors=array()) {
 				$output .= "</li>";
 		}
 		$output .= "</ul>";
+		$output .= "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" >&times;</button>";
 		$output .= "</div>";
 		}
 		return $output;
