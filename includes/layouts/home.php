@@ -5,7 +5,7 @@
         <div class="container">
           <div class="row no-gutters">
             <div class="col-lg-8 d-none d-lg-block">
-              <h2>Build <strong>social profiles</strong> and gain revenue & profits</h2>
+              <h3>Build <strong>social profiles</strong> and gain revenue & profits</h3>
               <div class="d-flex flex-row">
                 <div class="p-4 align-self-start">
                   <i class="fa fa-check"></i>

@@ -19,9 +19,9 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="feedbackModalTitle">
+        <h6 class="modal-title" id="feedbackModalTitle">
           Name and Email fields are optional
-        </h4>
+        </h6>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
